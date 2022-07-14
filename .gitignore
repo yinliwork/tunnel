@@ -1,0 +1,11 @@
+target/
+.idea
+*.iml
+.gradle
+.idea
+gradle/wrapper/gradle-wrapper.jar
+*/target/
+*.class
+gradlew
+gradlew.bat
+build

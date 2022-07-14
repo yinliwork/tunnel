@@ -1,0 +1,29 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+    }
+}
+
+rootProject.name = "tunnel"
+
+include 'core'
+include 'rest'
+include 'fastjson'
+
+include ':sample-api'
+project(':sample-api').projectDir = new File(rootProject.projectDir,
+        './samples/sample-api')
+include ':spring-sample'
+project(':spring-sample').projectDir = new File(rootProject.projectDir,
+        './samples/spring-sample')
+include ':sample'
+project(':sample').projectDir = new File(rootProject.projectDir,
+        './samples/sample')
