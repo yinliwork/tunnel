@@ -21,6 +21,7 @@ include 'fastjson'
 include ':sample-api'
 project(':sample-api').projectDir = new File(rootProject.projectDir,
         './samples/sample-api')
+
 include ':spring-sample'
 project(':spring-sample').projectDir = new File(rootProject.projectDir,
         './samples/spring-sample')
