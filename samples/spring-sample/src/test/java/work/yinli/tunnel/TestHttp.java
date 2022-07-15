@@ -4,6 +4,7 @@ package work.yinli.tunnel;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.springframework.web.client.RestTemplate;
 import work.yinli.tunnel.api.NewsApi;
 import work.yinli.tunnel.core.HttpProxy;
 import work.yinli.tunnel.result.NewsEntity;

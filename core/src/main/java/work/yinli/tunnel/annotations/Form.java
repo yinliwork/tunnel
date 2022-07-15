@@ -5,8 +5,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.PARAMETER)   // Formal parameter declaration
-@Retention(RetentionPolicy.RUNTIME)   // Annotations are to be recorded in the class file by the compiler and  retained by the VM at run time, so they may be read reflectively.
+/**
+ * 标识 multipart/form-data 和 application/x-www-form-urlencoded 的内容
+ * 不能和 FormMap 同时使用
+ *
+ * @author yangji
+ */
+@Target(ElementType.PARAMETER)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface Form {
     String value();
 }

@@ -6,13 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 标识 multipart/form-data 和 application/x-www-form-urlencoded 的内容
- * 不能和 Form 同时使用
+ * 标识 application/json 的内容
+ * 不能和 body 同时使用
  *
  * @author yangji
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FormMap {
+public @interface BodyMap {
 }
 
