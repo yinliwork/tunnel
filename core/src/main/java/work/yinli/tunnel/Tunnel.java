@@ -2,6 +2,7 @@ package work.yinli.tunnel;
 
 
 import work.yinli.tunnel.annotations.BaseUrl;
+import work.yinli.tunnel.core.HttpAdapter;
 import work.yinli.tunnel.core.RequestFactory;
 import work.yinli.tunnel.core.ResponseFactory;
 
@@ -13,6 +14,8 @@ import java.lang.reflect.Proxy;
  * @author yangji
  */
 public class Tunnel {
+
+    private HttpAdapter httpAdapter;
 
     @SuppressWarnings("unchecked")
     public <T> T create(Class<T> tClass) {
@@ -36,9 +39,10 @@ public class Tunnel {
 
     private void loadMethod(Object proxy, Method method) {
         RequestFactory request = RequestFactory.parseAnnotations(proxy, this, method);
-        ResponseFactory response = ResponseFactory.parse(this,method);
-
-        System.out.println();
+        ResponseFactory response = ResponseFactory.parse(this, method);
     }
 
+    public void setHttpAdapter(HttpAdapter httpAdapter) {
+        this.httpAdapter = httpAdapter;
+    }
 }

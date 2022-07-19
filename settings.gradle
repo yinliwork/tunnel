@@ -22,9 +22,9 @@ include ':sample-api'
 project(':sample-api').projectDir = new File(rootProject.projectDir,
         './samples/sample-api')
 
-include ':spring-sample'
-project(':spring-sample').projectDir = new File(rootProject.projectDir,
-        './samples/spring-sample')
+include ':sample-spring'
+project(':sample-spring').projectDir = new File(rootProject.projectDir,
+        './samples/sample-spring')
 include ':sample'
 project(':sample').projectDir = new File(rootProject.projectDir,
         './samples/sample')
