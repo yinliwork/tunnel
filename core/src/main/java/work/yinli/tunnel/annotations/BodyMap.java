@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * 标识 application/json 的内容
- * 不能和 body 同时使用
+ * 不能和 Body 同时使用
  *
  * @author yangji
  */

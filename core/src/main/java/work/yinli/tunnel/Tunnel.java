@@ -27,18 +27,12 @@ public class Tunnel {
                 return null;
             }
 
-            @Override
-            public String toString() {
-                return "234";
-            }
         });
     }
 
     private void loadMethod(Object proxy, Method method) {
         RequestFactory request = RequestFactory.parseAnnotations(proxy, this, method);
         ResponseFactory response = ResponseFactory.parse(this,method);
-
-        System.out.println();
     }
 
 }
