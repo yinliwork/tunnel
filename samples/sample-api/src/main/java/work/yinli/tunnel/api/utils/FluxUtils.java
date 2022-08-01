@@ -12,21 +12,20 @@ import java.util.function.Function;
  */
 public class FluxUtils {
 
-    public static <T> Function<Flux<T>, Publisher<BaseResult<T>>> composeFlux() {
-        return flux -> flux.map(baseResultFlux())
-                .onErrorResume(baseResultFluxError());
-    }
-
-    public static <T> Function<Mono<T>, Publisher<BaseResult<T>>> composeMono() {
-        return mono -> mono.map(BaseResult::success)
-                .onErrorResume(throwable -> Mono.just(BaseResult.error(throwable)));
-    }
-
-    public static <T> Function<T, BaseResult<T>> baseResultFlux() {
+    public static <T> Function<T, BaseResult<T>> toBaseResult() {
         return BaseResult::success;
     }
 
-    public static <T> Function<Throwable, Publisher<T>> baseResultFluxError() {
-        return throwable -> Flux.just((T) BaseResult.error(throwable));
+    public static <T> Function<Mono<T>, Publisher<BaseResult<T>>> transformMono() {
+        return result -> result
+                .map(FluxUtils.toBaseResult())
+                .onErrorResume(throwable -> Mono.just(BaseResult.error(throwable)));
     }
+
+    public static <T> Function<Flux<T>, Publisher<BaseResult<T>>> transformFlux() {
+        return result -> result
+                .map(FluxUtils.toBaseResult())
+                .onErrorResume(throwable -> Mono.just(BaseResult.error(throwable)));
+    }
+
 }

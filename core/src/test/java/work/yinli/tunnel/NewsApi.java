@@ -1,5 +1,6 @@
 package work.yinli.tunnel;
 
+import reactor.core.publisher.Flux;
 import work.yinli.tunnel.annotations.*;
 
 import java.util.List;
@@ -18,4 +19,8 @@ public interface NewsApi {
     @Post("news")
     BaseResult<NewsEntity> addNews(@BodyMap Map<String, String> entity);
 
+    @Get("news/get")
+    Flux<BaseResult<NewsEntity>> getById(@Query("id") Integer id);
+    @Get("news/get")
+    Integer getId(@Query("id") Integer id);
 }

@@ -6,5 +6,5 @@ package work.yinli.tunnel.core;
 public interface HttpAdapter {
 
     Response call(Request request);
-
+    
 }

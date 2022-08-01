@@ -37,14 +37,13 @@ public class RequestFactory {
     }
 
 
-    public static RequestFactory parseAnnotations(Object proxyApi, Tunnel tunnel, Method method) {
-        return new Builder(proxyApi, tunnel, method).build();
+    public static RequestFactory parseAnnotations(Object proxyApi, Method method) {
+        return new Builder(proxyApi, method).build();
     }
 
     public static class Builder {
         private final Method method;
         private final Object proxyApi;
-        private final Tunnel tunnel;
 
         private String httpUrl;
         private String httpPath;
@@ -55,9 +54,8 @@ public class RequestFactory {
         private boolean isPostJson;
         private ParameterHandler<?>[] parameterHandlers;
 
-        public Builder(Object proxyApi, Tunnel tunnel, Method method) {
+        public Builder(Object proxyApi, Method method) {
             this.proxyApi = proxyApi;
-            this.tunnel = tunnel;
             this.method = method;
         }
 

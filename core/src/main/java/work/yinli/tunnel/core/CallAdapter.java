@@ -7,4 +7,7 @@ public interface CallAdapter {
 
     Object adapt(HttpAdapter httpAdapter, Request request);
 
+    boolean identify(Class<?> returnType);
+
+
 }
