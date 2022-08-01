@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * 标识 application/json 的内容
- * 不能和 bodyMap 同时使用
+ * 不能和 BodyMap 同时使用
  * @author yangji
  */
 @Target(ElementType.PARAMETER)
